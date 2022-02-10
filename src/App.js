@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Compteur from "./Compteur";
+import React, { useState } from "react";
 
 function App() {
+  const [index, setIndex] = useState(0);
+
+  const increment = () => {
+    return setIndex(index + 1);
+  };
+  const decrement = () => {
+    return setIndex(index - 1);
+  };
+  const reset = () => {
+    return setIndex(0);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="compteur">
+        <Compteur
+          i={i}
+          index={index}
+          increment={increment}
+          decrement={decrement}
+          reset={reset}
+        />
+      </div>
+    </>
   );
 }
 
